@@ -1,0 +1,12 @@
+LDA 000H       ; Load first number from memory into A
+MOV C, A        ; Save it into register C
+
+LDA 001H       ; Load second number from memory into A
+MOV B, A        ; Save it into register B
+
+MOV A, C        ; Restore first number into A
+STC             ; Set carry to simulate borrow = 1
+ADC B           ; Add second number + carry to A
+
+STA 002H       ; Store result in memory at C002H
+HLT
